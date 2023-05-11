@@ -20,7 +20,7 @@ class BasePage:
         self.driver.refresh()
 
     def get_title(self):
-        return self.driver.title()
+        return self.driver.title
 
     def get_url(self):
         return self.driver.current_url
@@ -29,3 +29,5 @@ class BasePage:
         if self.get_url() == self.base_url:
             return True
         return False
+
+
