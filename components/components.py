@@ -4,18 +4,19 @@ from selenium.webdriver.common.keys import Keys
 
 
 class WebElements:
-    def __init__(self, driver, locator=''):
+    def __init__(self, driver, locator='', locator_type='CSS'):
         self.driver = driver
         self.locator = locator
+        self.locator_type = locator_type
 
     def click(self):
         self.find_element().click()
 
     def find_element(self):
-        return self.driver.find_element(By.CSS_SELECTOR, self.locator)
+        return self.driver.find_element(self.get_by_type(), self.locator)
 
     def find_elements(self):
-        return self.driver.find_elements(By.CSS_SELECTOR, self.locator)
+        return self.driver.find_elements(self.get_by_type(), self.locator)
 
     def exist(self):
         try:
@@ -54,4 +55,20 @@ class WebElements:
             return value
         return True
 
+    def get_by_type(self):
+        if self.locator_type == 'ID':
+            return By.ID
+        elif self.locator_type == 'name':
+            return By.NAME
+        elif self.locator_type == 'xpath':
+            return By.XPATH
+        elif self.locator_type == 'CSS':
+            return By.CSS_SELECTOR
+        elif self.locator_type == 'class':
+            return By.CLASS_NAME
+        elif self.locator_type == 'link':
+            return By.LINK_TEXT
+        else:
+            print('Locator type ' + self.locator_type + 'not correct')
+        return False
 

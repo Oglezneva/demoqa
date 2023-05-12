@@ -6,9 +6,6 @@ def test_visible_btn_sidebar(browser):
     element = ElementsPage(browser)
 
     element.visit()
-    #element.btn_sidebar_first.click()
-   #time.sleep(3)
-    #assert element.btn_sidebar_first_textbox.exist()
     assert element.btn_sidebar_first_textbox.visible()
 
 
