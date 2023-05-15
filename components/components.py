@@ -9,8 +9,9 @@ class WebElements:
         self.locator = locator
         self.locator_type = locator_type
 
-    def click(self):
-        self.find_element().click()
+    def click(self, i=1):
+        for x in range(i):
+            self.find_element().click()
 
     def find_element(self):
         return self.driver.find_element(self.get_by_type(), self.locator)
@@ -55,6 +56,12 @@ class WebElements:
             return value
         return True
 
+    def scroll_to_element(self):
+        self.driver.execute_script(
+            'window.scrollTo(0, document.body.scrollHeight);',
+            self.find_element()
+        )
+
     def get_by_type(self):
         if self.locator_type == 'ID':
             return By.ID
@@ -71,4 +78,8 @@ class WebElements:
         else:
             print('Locator type ' + self.locator_type + 'not correct')
         return False
+
+    def check_css(self, style, value=''):
+        return self.find_element().value_of_css_property(style) == value
+
 
