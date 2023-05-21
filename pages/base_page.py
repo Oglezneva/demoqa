@@ -1,3 +1,4 @@
+import requests
 from selenium.webdriver.common.by import By
 import time
 import logging
@@ -40,3 +41,7 @@ class BasePage:
         except Exception as ex:
             logging.log(1, ex)
             return False
+
+    def is_available(self):
+        response = requests.get(self.base_url)
+        return response.status_code == 200

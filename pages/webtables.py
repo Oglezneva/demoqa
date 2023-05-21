@@ -24,7 +24,7 @@ class WebTables(BasePage):
         self.rows = WebElements(driver, 'div.pagination-bottom span.select-wrap.-pageSizeOptions > select')
         self.pagination_option_5 = WebElements(driver, '.pagination-bottom select option[value="5"]')
 
-        self.header_first_name = WebElements(driver, 'div.rt-th.rt-resizable-header.-sort-desc.-cursor-pointer')
+        self.header_first_name = WebElements(driver, 'div.rt-table > div.rt-thead.-header > div > div:nth-child(1)')
         self.header_last_name = WebElements(driver, '#app div > div:nth-child(2) > div.rt-resizable-header-content')
         self.header_age = WebElements(driver, '#app div > div:nth-child(3) > div.rt-resizable-header-content')
         self.header_email = WebElements(driver, 'div > div:nth-child(4) > div.rt-resizable-header-content')

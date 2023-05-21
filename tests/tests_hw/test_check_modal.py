@@ -5,6 +5,8 @@ def test_check_modal(browser):
     modal_page = ModalDialogs(browser)
 
     modal_page.visit()
+    assert modal_page.is_available()
+
     assert modal_page.btn_small_modal.exist()
     assert modal_page.btn_large_modal.exist()
 

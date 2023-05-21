@@ -5,7 +5,7 @@ from components.components import WebElements
 class ModalDialogs(BasePage):
 
     def __init__(self, driver):
-        self.base_url = 'https://demoqa.com/modal-dialogs'
+        self.base_url = 'https://demoqa.com/modal-dial'
         super().__init__(driver, self.base_url)
 
         self.btns_third_menu = WebElements(driver, 'div:nth-child(3) > div > ul > li')
