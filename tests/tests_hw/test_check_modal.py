@@ -1,10 +1,8 @@
 from pages.modal_dialogs import ModalDialogs
-import requests
 
 
 def test_check_modal(browser):
     modal_page = ModalDialogs(browser)
-    modal_page.requests()
 
     modal_page.visit()
     assert modal_page.btn_small_modal.exist()
@@ -21,5 +19,7 @@ def test_check_modal(browser):
     assert modal_page.btn_close_after_large.exist()
     modal_page.btn_close_after_large.click()
     assert not modal_page.large_modal.exist()
+
+
 
 
